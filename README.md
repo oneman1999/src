@@ -1,4 +1,4 @@
-src
+Deus Ex Machina 
 ===============
 
 Have you ever wanted a mod in minecraft where you can reproduce the greatest achievments of human kind in the 20th and 21st century? 
