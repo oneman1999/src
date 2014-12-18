@@ -1,7 +1,6 @@
 package dxm;
 
 import cpw.mods.fml.common.IWorldGenerator;
-import dxm.blocks.MaterialTypes;
 import dxm.blocks.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
@@ -27,7 +26,8 @@ public class WorldGen implements IWorldGenerator {
 
     private void generateSurface(World world, Random random, int x, int z) {
         //possibly make a config to alter spawn chance and density?
-        addOreSpawn(MaterialTypes.CASSITITERITE.getOre(), world, random, x, z, 16, 16, 25, random.nextInt(3), 1, 64);
+       /**
+    	addOreSpawn(MaterialTypes.CASSITITERITE.getOre(), world, random, x, z, 16, 16, 25, random.nextInt(3), 1, 64);
         addOreSpawn(MaterialTypes.GALENA.getOre(), world, random, x, z, 16, 16, 25, random.nextInt(3), 1, 64);
         addOreSpawn(MaterialTypes.HEMATITE.getOre(), world, random, x, z, 16, 16, 40, random.nextInt(3), 1, 80);
         addOreSpawn(MaterialTypes.MALACHITE.getOre(), world, random, x, z, 16, 16, 25, random.nextInt(3), 1, 64);
@@ -53,6 +53,7 @@ public class WorldGen implements IWorldGenerator {
         addSpecialOreSpawn(ModBlocks.geoGas, world, random, x, z, 16, 16, 20, random.nextInt(2), 40, 64, new ArrayList<String>(Arrays.asList("Swampland", "Swampland M", "Mega Taiga", "Mega Spruce Taiga")));
         addSpecialOreSpawn(ModBlocks.geoHeavy, world, random, x, z, 16, 16, 20, random.nextInt(2), 40, 64, new ArrayList<String>(Arrays.asList("Desert", "Plateau", "Desert M", "Plateau M", "Ocean", "Jungle M", "Jungle Edge", "Jungle Edge M")));
         addSpecialOreSpawn(ModBlocks.geoLight, world, random, x, z, 16, 16, 20, random.nextInt(2), 40, 64, new ArrayList<String>(Arrays.asList("Desert", "Plateau", "Desert M", "Plateau M", "Ocean", "Jungle M", "Jungle Edge", "Jungle Edge M")));
+    **/
     }
 
     public void addSpecialOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int chancesToSpawn, int minY, int maxY, List<String> biomes) {
