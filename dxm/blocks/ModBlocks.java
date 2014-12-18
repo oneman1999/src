@@ -22,7 +22,11 @@ public class ModBlocks {
     /** initializing the Deus-Ex-Machina Blocks**/
     private static void createBlocks() {
     	           
-    	housingBlock = new HousingBlock();
+    	housingBlock = new HousingBlock(HousingBlock.Empty);
+    	housingBlock = new HousingBlock(HousingBlock.Apartment);
+    	housingBlock = new HousingBlock(HousingBlock.Homstead);
+    	housingBlock = new HousingBlock(HousingBlock.House);
+    	housingBlock = new HousingBlock(HousingBlock.Hovel);
     	
     }
     

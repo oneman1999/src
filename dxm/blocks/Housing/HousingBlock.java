@@ -1,22 +1,49 @@
 package dxm.blocks.Housing;
 
-import net.minecraft.block.Block;
+import dxm.TileEntity.housing.TileEntityHousing_Apartment;
+import dxm.TileEntity.housing.TileEntityHousing_Empty;
+import dxm.TileEntity.housing.TileEntityHousing_Homstead;
+import dxm.TileEntity.housing.TileEntityHousing_House;
+import dxm.TileEntity.housing.TileEntityHousing_Hovel;
+import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 
-public class HousingBlock extends Block {
+public class HousingBlock extends BlockContainer {
 	
+	public static int type;
 	
-	public static final int type_Empty = 0;
-	public static final int type_Hovel = 1;
-	public static final int type_Homstead = 2;
-	public static final int type_House = 3;
-	public static final int type_Apartment = 4;
+	public static final int Empty = 0;
+	public static final int Hovel = 1;
+	public static final int Homstead = 2;
+	public static final int House = 3;
+	public static final int Apartment = 4;
 	
 
-	public HousingBlock() {
+	public HousingBlock(int type) {
 		super(Material.iron);
+		this.type = type;
 	}
 	
+	public TileEntity createNewTileEntity(World world , int i){
+		if(this.type == this.Empty){
+			return new TileEntityHousing_Empty();
+		}
+		if(this.type == this.Hovel){
+			return new TileEntityHousing_Hovel();
+		}
+		if(this.type == this.Homstead){
+			return new TileEntityHousing_Homstead();
+		}
+		if(this.type == this.House){
+			return new TileEntityHousing_House();
+		}
+		if(this.type == this.Apartment){
+			return new TileEntityHousing_Apartment();
+		}
+		return null;
+	}
 	
 	
 
