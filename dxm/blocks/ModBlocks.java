@@ -1,6 +1,7 @@
 package dxm.blocks;
 
 import dxm.DeusXMachina;
+import dxm.blocks.Housing.HousingBlock;
 import dxm.utils.MinecraftHelper;
 import dxm.utils.library.Archive;
 import net.minecraft.block.Block;
@@ -8,7 +9,7 @@ import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
 
 public class ModBlocks {
-
+/**
     public static Block adminConcreteBlock;
     public static Block adminAsphaltBlock;
     public static Block asphaltBlock;
@@ -50,16 +51,23 @@ public class ModBlocks {
     public static Block switchgrassOne;
     public static Block switchgrassTwo;
     public static Block tilledFertilizedBlock;
-
-    public static void setup() {
+**/
+	
+	public static Block housingBlock;
+   
+	
+	public static void setup() {
         MaterialTypes.setup();
 
         createBlocks();
 
         registerBlocks();
     }
-
+	
+	
+    /** initializing the Deus-Ex-Machina Blocks**/
     private static void createBlocks() {
+    	/**
         adminAsphaltBlock = new ModBlock(Material.ground).setBlockName("adminAsphaltBlock").setBlockTextureName(Archive.MOD_ID + ":fab/asphaltBlock").setHardness(-1).setResistance(1000).setStepSound(Block.soundTypeStone).setCreativeTab(DeusXMachina.instance.tab);
         adminConcreteBlock = new ModBlock(Material.ground).setBlockName("adminConcreteBlock").setBlockTextureName(Archive.MOD_ID + ":fab/concreteBlock").setHardness(-1).setResistance(1000).setStepSound(Block.soundTypeStone).setCreativeTab(DeusXMachina.instance.tab);
         asphaltBlock = new ModBlock(Material.ground).setBlockName("asphaltBlock").setBlockTextureName(Archive.MOD_ID + ":fab/asphaltBlock").setHardness(1).setResistance(10).setStepSound(Block.soundTypeStone).setCreativeTab(DeusXMachina.instance.tab);
@@ -101,10 +109,15 @@ public class ModBlocks {
         switchgrassOne = new SwitchgrassOne();
         switchgrassTwo = new SwitchgrassTwo();
         tilledFertilizedBlock = new TilledFertilizedBlock();
+        **/
+    	housingBlock = new HousingBlock();
+    	
     }
-
+    
+    /** registring the Deus-Ex-Machina Blocks**/
     private static void registerBlocks() {
-        MinecraftHelper.registerBlock(adminAsphaltBlock);
+       /**
+    	MinecraftHelper.registerBlock(adminAsphaltBlock);
         MinecraftHelper.registerBlock(adminConcreteBlock);
         MinecraftHelper.registerBlock(asphaltBlock);
         MinecraftHelper.registerBlock(concreteBlock);
@@ -145,5 +158,9 @@ public class ModBlocks {
         MinecraftHelper.registerBlock(switchgrassOne);
         MinecraftHelper.registerBlock(switchgrassTwo);
         MinecraftHelper.registerBlock(tilledFertilizedBlock);
+        **/
+    	
+    	MinecraftHelper.registerBlock(housingBlock);
+    	
     }
 }
