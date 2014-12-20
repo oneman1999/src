@@ -18,6 +18,9 @@ public class TileEntityHousing extends TileEntity implements IHousing{
 	public static final int Homstead = 2;
 	public static final int House = 3;
 	public static final int Apartment = 4;
+	public static final int Null_Type = -1;
+	
+	public int[] availableTypes = {};
 	
 	private int CheckTimer = 0;
 	
@@ -25,10 +28,23 @@ public class TileEntityHousing extends TileEntity implements IHousing{
 		this.type = type;
 	}
 	
-	/**
-	 * Update Entity!!
-	 */
+	
+	
 	public void updateEntity(){
+		
+		this.handleCheckTimer();
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	public void handleCheckTimer(){
 		this.CheckTimer++;
 		if(this.CheckTimer == 200){
 			this.CheckTimer = 0;
@@ -51,9 +67,35 @@ public class TileEntityHousing extends TileEntity implements IHousing{
 	
 	@Override
 	public void checkForUpdate() {
-		for(HousingType h : HousingType.values()){
-			this.scan(h.getDimensionsToScan(), h.type);
+		//Clearing The AvailableTypes Array
+		for(int i = 0;i<this.availableTypes.length;i++){
+			this.availableTypes[i] = this.Null_Type;
 		}
+		
+		//Getting Available Types and Storing them in an aray
+		for(HousingType h : HousingType.values()){
+			if(this.scan(h.getDimensionsToScan(), h.type)){
+				this.availableTypes[this.availableTypes.length] = h.type;
+			}
+		}
+		
+		//Chacking if the Current Type is also an available Type
+		boolean isCurrentTypeAvailable = false;
+		for(int i = 0 ; i < availableTypes.length;i++){
+			if(this.type == this.availableTypes[i]){
+				isCurrentTypeAvailable = true;
+				return;
+			}
+		}
+		
+		
+		
+		
+		
+	}
+	
+	public void convert(int from , int to){
+		
 	}
 	
 	
