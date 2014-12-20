@@ -15,7 +15,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 
-@Mod(modid = DXM_Info.MOD_ID , version = DXM_Info.VERSION)
+@Mod(modid = DXM_Info.MOD_ID , version = DXM_Info.VERSION , name = DXM_Info.MOD_FULL_NAME)
 
 public class DeusXMachina {
 

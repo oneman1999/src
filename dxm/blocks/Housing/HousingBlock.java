@@ -66,8 +66,6 @@ public class HousingBlock extends BlockContainer {
 				 player.openGui(DeusXMachina.instance, guiID, world, x, y, z);
 			 }
 		 }
-		 
-		 
 		 return false;
 	 }
 	 
