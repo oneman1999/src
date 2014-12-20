@@ -23,7 +23,14 @@ public class WorldGen implements IWorldGenerator {
                 break;
         }
     }
-
+    
+    /**
+     * 
+     * @param world
+     * @param random
+     * @param x
+     * @param z
+     */
     private void generateSurface(World world, Random random, int x, int z) {
         //possibly make a config to alter spawn chance and density?
        /**
@@ -55,7 +62,22 @@ public class WorldGen implements IWorldGenerator {
         addSpecialOreSpawn(ModBlocks.geoLight, world, random, x, z, 16, 16, 20, random.nextInt(2), 40, 64, new ArrayList<String>(Arrays.asList("Desert", "Plateau", "Desert M", "Plateau M", "Ocean", "Jungle M", "Jungle Edge", "Jungle Edge M")));
     **/
     }
-
+    
+	/**
+	 * 
+	 * @param block
+	 * @param world
+	 * @param random
+	 * @param blockXPos
+	 * @param blockZPos
+	 * @param maxX
+	 * @param maxZ
+	 * @param maxVeinSize
+	 * @param chancesToSpawn
+	 * @param minY
+	 * @param maxY
+	 * @param biomes
+	 */
     public void addSpecialOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int chancesToSpawn, int minY, int maxY, List<String> biomes) {
         if(canSpawn(maxY, minY, maxX, maxZ) && hasRightBiome(world.getBiomeGenForCoords(blockXPos, blockZPos), biomes)) {
             int deltaY = maxY - minY;
@@ -67,7 +89,13 @@ public class WorldGen implements IWorldGenerator {
             }
         }
     }
-
+    
+    /**
+     * 
+     * @param biome
+     * @param biomes
+     * @return
+     */
     private boolean hasRightBiome(BiomeGenBase biome, List<String> biomes) {
         if(biomes.contains(biome.biomeName)) {
             return true;
@@ -78,6 +106,18 @@ public class WorldGen implements IWorldGenerator {
     /**
      * Adds an Ore Spawn to Minecraft. Simply register all Ores to spawn with this method in your Generation method in your IWorldGeneration
      * extending Class
+     * 
+     * @param block
+     * @param world
+     * @param random
+     * @param blockXPos
+     * @param blockZPos
+     * @param maxX
+     * @param maxZ
+     * @param maxVeinSize
+     * @param chancesToSpawn
+     * @param minY
+     * @param maxY
      */
     public void addOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int chancesToSpawn, int minY, int maxY) {
         if(canSpawn(maxY, minY, maxX, maxZ)) {

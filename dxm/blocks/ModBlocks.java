@@ -39,7 +39,7 @@ public class ModBlocks {
     private static void registerBlocks() {
        
     	
-    	registerBlock(housingBlock1, "Empty");
+    	registerBlock(housingBlock1, "Empty Housing");
     	registerBlock(housingBlock2 , "Apartment");
     	registerBlock(housingBlock3 , "Homstead");
     	registerBlock(housingBlock4 , "House");

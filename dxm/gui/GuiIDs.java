@@ -1,5 +1,8 @@
 package dxm.gui;
 
+/**
+ * This class is used for easyer use of the Gui ID system
+ */
 public class GuiIDs {
 	
 	/** Add on the gui IDs. Make sure to always make them static and final**/

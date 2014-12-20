@@ -2,22 +2,21 @@ package dxm.blocks.Housing;
 
 import java.util.Random;
 
-import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.common.FMLCommonHandler;
-import dxm.DeusXMachina;
-import dxm.TileEntity.housing.TileEntityHousing_Apartment;
-import dxm.TileEntity.housing.TileEntityHousing_Homstead;
-import dxm.TileEntity.housing.TileEntityHousing_House;
-import dxm.TileEntity.housing.TileEntityHousing_Hovel;
-import dxm.blocks.ModBlock;
-import dxm.blocks.ModBlocks;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import dxm.DeusXMachina;
+import dxm.TileEntity.housing.TileEntityHousing_Apartment;
+import dxm.TileEntity.housing.TileEntityHousing_Homstead;
+import dxm.TileEntity.housing.TileEntityHousing_House;
+import dxm.TileEntity.housing.TileEntityHousing_Hovel;
+import dxm.blocks.ModBlocks;
+import dxm.library.DXM_Info;
 
 public class HousingBlock extends BlockContainer {
 	
@@ -29,7 +28,10 @@ public class HousingBlock extends BlockContainer {
 	public static final int House = 3;
 	public static final int Apartment = 4;
 	
-
+	/**
+	 * Constructor for initializing the block
+	 * @param type
+	 */
 	public HousingBlock(int type) {
 		super(Material.iron);
 		this.meta = type;
@@ -64,10 +66,18 @@ public class HousingBlock extends BlockContainer {
 			 int guiID = (meta == this.Apartment? 0 : ( meta == this.Homstead ? 1 : (meta == this.Hovel ? 2 :( meta == this.House? 3 : -1))));
 			 if(guiID != -1){
 				 player.openGui(DeusXMachina.instance, guiID, world, x, y, z);
+				 return true;
 			 }
 		 }
 		 return false;
 	 }
 	 
+	 /**
+	  * IIcons!!
+	  * @param icon register
+	  */
+	 public void registerIIcons(IIconRegister ir){
+		 this.blockIcon = ir.registerIcon(DXM_Info.MOD_ID + ":" + "Housing_" + "meta");
+	 }
 
 }
