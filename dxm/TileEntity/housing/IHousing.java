@@ -11,12 +11,17 @@ public interface IHousing {
 	
 	/**
 	 * returns and Integer Array containing the area that
-	 * the housing effects in 3 dimensions
+	 * the housing effects in 3 dimensions {X , Y , Z}
 	 * @return
 	 */
 	public int[] getAreaOfEffect();
 	
-	
+	/**
+	 * 
+	 * @param dimentions
+	 * @returns true if scan was completed succesfully
+	 */
+	public boolean scan(int[] dimentions);
 	
 	
 }

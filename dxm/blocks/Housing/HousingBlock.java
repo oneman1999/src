@@ -11,10 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import dxm.DeusXMachina;
-import dxm.TileEntity.housing.TileEntityHousing_Apartment;
-import dxm.TileEntity.housing.TileEntityHousing_Homstead;
-import dxm.TileEntity.housing.TileEntityHousing_House;
-import dxm.TileEntity.housing.TileEntityHousing_Hovel;
+import dxm.TileEntity.housing.TileEntityHousing;
 import dxm.blocks.ModBlocks;
 import dxm.library.DXM_Info;
 
@@ -41,19 +38,7 @@ public class HousingBlock extends BlockContainer {
 	
 	/** Creating a seperate TileEntity for every type of housing **/
 	public TileEntity createNewTileEntity(World world , int meta){
-		if(meta == this.Hovel){
-			return new TileEntityHousing_Hovel();
-		}
-		if(meta == this.Homstead){
-			return new TileEntityHousing_Homstead();
-		}
-		if(meta == this.House){
-			return new TileEntityHousing_House();
-		}
-		if(meta == this.Apartment){
-			return new TileEntityHousing_Apartment();
-		}
-		return null;
+		return new TileEntityHousing();
 	}
 	
 	/** Makes any housing block drop the empty housing block **/
