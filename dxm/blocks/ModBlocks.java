@@ -48,6 +48,11 @@ public class ModBlocks {
     	
     }
     
+    /**The new Way to register a block 
+     * 
+     * @param block defined in this class
+     * @param name that will be rendered on the players Screen
+     */
     public static void registerBlock(Block block , String name){
     	MinecraftHelper.registerBlock(block);
     	LanguageRegistry.addName(block, name);
