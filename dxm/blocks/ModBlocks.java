@@ -1,7 +1,8 @@
 package dxm.blocks;
 
+import cpw.mods.fml.common.registry.LanguageRegistry;
+import dxm.DeusXMachina;
 import dxm.blocks.Housing.HousingBlock;
-import dxm.library.DeusXMachina;
 import dxm.utils.MinecraftHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
@@ -38,11 +39,17 @@ public class ModBlocks {
     private static void registerBlocks() {
        
     	
-    	MinecraftHelper.registerBlock(housingBlock1);
-    	MinecraftHelper.registerBlock(housingBlock2);
-    	MinecraftHelper.registerBlock(housingBlock3);
-    	MinecraftHelper.registerBlock(housingBlock4);
-    	MinecraftHelper.registerBlock(housingBlock5);
+    	registerBlock(housingBlock1, "Empty");
+    	registerBlock(housingBlock2 , "Apartment");
+    	registerBlock(housingBlock3 , "Homstead");
+    	registerBlock(housingBlock4 , "House");
+    	registerBlock(housingBlock5 , "Hovel");
     	
+    	
+    }
+    
+    public static void registerBlock(Block block , String name){
+    	MinecraftHelper.registerBlock(block);
+    	LanguageRegistry.addName(block, name);
     }
 }

@@ -1,7 +1,7 @@
 package dxm.items;
 
-import dxm.DXM_Info;
-import dxm.library.DeusXMachina;
+import dxm.DeusXMachina;
+import dxm.library.DXM_Info;
 import dxm.utils.MinecraftHelper;
 import net.minecraft.item.Item;
 

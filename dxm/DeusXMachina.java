@@ -1,4 +1,4 @@
-package dxm.library;
+package dxm;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -8,10 +8,9 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import dxm.DXM_Info;
-import dxm.WorldGen;
 import dxm.blocks.ModBlocks;
 import dxm.items.ModItems;
+import dxm.library.DXM_Info;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;

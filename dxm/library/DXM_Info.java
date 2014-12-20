@@ -1,4 +1,4 @@
-package dxm;
+package dxm.library;
 
 public class DXM_Info {
 
