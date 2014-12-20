@@ -45,6 +45,5 @@ public class DeusXMachina {
     @EventHandler
     public void init(FMLInitializationEvent event) {
         GameRegistry.registerWorldGenerator(worldGen, 1);
-        LanguageRegistry.addName(tab, DXM_Info.MOD_FULL_NAME);
     }
 }
