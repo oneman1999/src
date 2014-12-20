@@ -19,9 +19,14 @@ public interface IHousing {
 	/**
 	 * 
 	 * @param dimentions
-	 * @returns true if scan was completed succesfully
+	 * @param the type its going to test for
+	 * @returns an Integer array which specifies the types that the housing could be
 	 */
-	public boolean scan(int[] dimentions);
+	public boolean scan(int[] dimentions , int TypeScanningFor);
 	
+	/**
+	 * Updates the housing and runs a scan for every type of housing
+	 */
+	public void checkForUpdate();
 	
 }

@@ -38,7 +38,7 @@ public class HousingBlock extends BlockContainer {
 	
 	/** Creating a seperate TileEntity for every type of housing **/
 	public TileEntity createNewTileEntity(World world , int meta){
-		return new TileEntityHousing();
+		return new TileEntityHousing(this.meta);
 	}
 	
 	/** Makes any housing block drop the empty housing block **/
@@ -46,6 +46,10 @@ public class HousingBlock extends BlockContainer {
 	        return Item.getItemFromBlock(ModBlocks.housingBlock1);
 	 }
 	 
+	 /**
+	  * Opens The Gui when the block is right-clicked.
+	  * returns false if the block is an Empty Housing
+	  */
 	 public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float a, float b, float c){
 		 if(!world.isRemote){
 			 int guiID = (meta == this.Apartment? 0 : ( meta == this.Homstead ? 1 : (meta == this.Hovel ? 2 :( meta == this.House? 3 : -1))));
