@@ -57,8 +57,6 @@ public class HousingBlock extends BlockContainer  {
 	  * returns false if the block is an Empty Housing
 	  */
 	 public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float a, float b, float c){
-		 System.out.println(meta);
-		
 		 if(!world.isRemote){
 		 	player.openGui(DeusXMachina.instance, GuiIDs.Housing, world, x, y, z);
 			return true;

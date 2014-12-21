@@ -13,7 +13,7 @@ import dxm.library.DXM_Info;
 
 public class GuiHousing extends GuiContainer{
 
-	private static final ResourceLocation texture = new ResourceLocation(DXM_Info.MOD_ID , "/textures/gui/guiHousing");
+	private static final ResourceLocation texture = new ResourceLocation(DXM_Info.MOD_ID , "textures/gui/guiHousing.png");
 	
 	TileEntityHousing te;
 	
