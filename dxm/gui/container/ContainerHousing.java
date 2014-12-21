@@ -10,15 +10,14 @@ public class ContainerHousing extends Container {
 
 	TileEntityHousing te;
 	
-	public ContainerHousing(InventoryPlayer inv, IInventory te) {
-		this.te = (TileEntityHousing) te;
+	public ContainerHousing(InventoryPlayer inv, TileEntityHousing te) {
+		this.te = te;
 		
 	}
 
 	@Override
 	public boolean canInteractWith(EntityPlayer p_75145_1_) {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }

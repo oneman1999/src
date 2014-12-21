@@ -1,7 +1,8 @@
-package dxm.blocks.Housing;
+package dxm.blocks;
 
 import java.util.Random;
 
+import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -13,11 +14,12 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import dxm.DeusXMachina;
 import dxm.TileEntity.housing.TileEntityHousing;
-import dxm.blocks.ModBlocks;
+import dxm.gui.GuiHousing;
 import dxm.gui.GuiIDs;
+import dxm.gui.container.ContainerHousing;
 import dxm.library.DXM_Info;
 
-public class HousingBlock extends BlockContainer {
+public class HousingBlock extends BlockContainer  {
 	
 	public static int meta;
 	
@@ -27,7 +29,6 @@ public class HousingBlock extends BlockContainer {
 	public static final int House = 3;
 	public static final int Apartment = 4;
 	
-	private DataWatcher dw;
 	
 	/**
 	 * Constructor for initializing the block
@@ -38,6 +39,7 @@ public class HousingBlock extends BlockContainer {
 		this.meta = type;
 		this.setBlockName("blockHousing" + type);
 		this.setCreativeTab(CreativeTabs.tabDecorations);
+	
 	}
 	
 	/** Creating a seperate TileEntity for every type of housing **/
@@ -55,12 +57,13 @@ public class HousingBlock extends BlockContainer {
 	  * returns false if the block is an Empty Housing
 	  */
 	 public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float a, float b, float c){
+		 System.out.println(meta);
+		
 		 if(!world.isRemote){
-			if(meta != 0){
-				 player.openGui(DeusXMachina.instance, GuiIDs.Housing, world, x, y, z);
-				 return true;
-			 }
+		 	player.openGui(DeusXMachina.instance, GuiIDs.Housing, world, x, y, z);
+			return true;
 		 }
+		 
 		 return false;
 	 }
 	 
@@ -69,7 +72,8 @@ public class HousingBlock extends BlockContainer {
 	  * @param icon register
 	  */
 	 public void registerIIcons(IIconRegister ir){
-		 this.blockIcon = ir.registerIcon(DXM_Info.MOD_ID + ":" + "Housing_" + "meta");
+		 this.blockIcon = ir.registerIcon(DXM_Info.MOD_ID + ":" + "Housing_" + meta );
 	 }
+
 
 }

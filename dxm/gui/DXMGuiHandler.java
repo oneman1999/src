@@ -5,6 +5,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.network.IGuiHandler;
+import dxm.TileEntity.housing.TileEntityHousing;
 import dxm.gui.container.ContainerHousing;
 
 public class DXMGuiHandler implements IGuiHandler{
@@ -12,14 +13,13 @@ public class DXMGuiHandler implements IGuiHandler{
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
 		TileEntity te = world.getTileEntity(x, y, z);
-		
-		switch(ID){
-		case GuiIDs.Housing :
-			return new ContainerHousing(player.inventory , (IInventory) te);
-		
+		if(te != null){
+			switch(ID){
+			case GuiIDs.Housing :
+				return new ContainerHousing(player.inventory , (TileEntityHousing) te);
+			}
 		}
-		
-		return null;
+		return null; 
 	}
 
 	@Override
@@ -28,7 +28,7 @@ public class DXMGuiHandler implements IGuiHandler{
 		
 		switch(ID){
 		case GuiIDs.Housing :
-			return new GuiHousing(player.inventory , (IInventory) te);
+			return new GuiHousing(player.inventory , (TileEntityHousing) te);
 		
 		}
 		

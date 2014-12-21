@@ -2,7 +2,6 @@ package dxm.blocks;
 
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import dxm.DeusXMachina;
-import dxm.blocks.Housing.HousingBlock;
 import dxm.utils.MinecraftHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
