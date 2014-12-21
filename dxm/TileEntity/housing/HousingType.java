@@ -2,10 +2,10 @@ package dxm.TileEntity.housing;
 
 public enum HousingType {
 	
-	Apartment(40 , 60 , 40 , 0),
-	Homstead(40 , 60 , 40 , 1),
-	House(40 , 60 , 40 , 2),
-	Hovel(15 , 15 , 15 , 3);
+	Apartment(21 , 60 , 21 , 0),
+	House(21 , 20 , 21 , 2),
+	Homstead(21 , 10 , 21 , 1),
+	Hovel(11 , 10 , 11 , 3);
 	
 	public int x;
 	public int y;

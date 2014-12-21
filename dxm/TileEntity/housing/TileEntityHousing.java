@@ -2,12 +2,21 @@ package dxm.TileEntity.housing;
 
 import java.util.HashMap;
 
+import dxm.blocks.ModBlocks;
 import dxm.blocks.Housing.HousingBlock;
+import dxm.utils.Error.ErrorHandler;
+import dxm.utils.Error.IError;
+import dxm.utils.Error.ScanProblemError;
 import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 
 /**
- * @category TileEntityHousing
+ * 
+ * @author Alex
+ *
  */
 public class TileEntityHousing extends TileEntity implements IHousing{
 
@@ -19,20 +28,20 @@ public class TileEntityHousing extends TileEntity implements IHousing{
 	public static final int House = 3;
 	public static final int Apartment = 4;
 	public static final int Null_Type = -1;
+	public static final int HousingBlockScan = -2;
 	
 	public int[] availableTypes = {};
-	
-	private int CheckTimer = 0;
 	
 	public TileEntityHousing(int type){
 		this.type = type;
 	}
 	
 	
-	
+	/**
+	 * Runs every tick
+	 */
 	public void updateEntity(){
 		
-		this.handleCheckTimer();
 		
 		
 		
@@ -43,14 +52,7 @@ public class TileEntityHousing extends TileEntity implements IHousing{
 	
 	
 	
-	
-	public void handleCheckTimer(){
-		this.CheckTimer++;
-		if(this.CheckTimer == 200){
-			this.CheckTimer = 0;
-			this.checkForUpdate();
-		}
-	}
+
 	
 	@Override
 	public int getType() {
@@ -60,43 +62,47 @@ public class TileEntityHousing extends TileEntity implements IHousing{
 	
 
 	@Override
-	public int[] getAreaOfEffect() {
-		return null;
+	public int[] getAreaOfEffect(int type) {
+		if(type == this.Apartment){
+			return new int[]{41,60,41};
+		}
+		if(type == this.House){
+			return new int[]{41,60,41};
+		}
+		if(type == this.Homstead){
+			return new int[]{41,60,41};
+		}
+		if(type == this.Hovel){
+			return new int[]{15,15,15};
+		}
+		return new int[]{0,0,0};
 	}
 	
 	
 	@Override
 	public void checkForUpdate() {
-		//Clearing The AvailableTypes Array
-		for(int i = 0;i<this.availableTypes.length;i++){
-			this.availableTypes[i] = this.Null_Type;
-		}
-		
-		//Getting Available Types and Storing them in an aray
-		for(HousingType h : HousingType.values()){
-			if(this.scan(h.getDimensionsToScan(), h.type)){
-				this.availableTypes[this.availableTypes.length] = h.type;
+		if(this.scan(this.getAreaOfEffect(this.Apartment), HousingBlockScan)){
+			 if(this.scan(HousingType.Apartment.getDimensionsToScan(), Apartment)){
+				 this.type = this.Apartment;
+			 } 
+		}else if(this.scan(getAreaOfEffect(this.House), HousingBlockScan)){
+			if(this.scan(HousingType.House.getDimensionsToScan(), House)){
+				this.type = this.House;
 			}
-		}
-		
-		//Chacking if the Current Type is also an available Type
-		boolean isCurrentTypeAvailable = false;
-		for(int i = 0 ; i < availableTypes.length;i++){
-			if(this.type == this.availableTypes[i]){
-				isCurrentTypeAvailable = true;
-				return;
+		}else if(this.scan(getAreaOfEffect(Homstead), HousingBlockScan)){
+			if(this.scan(HousingType.Homstead.getDimensionsToScan(), Homstead)){
+				this.type = this.Homstead;
 			}
+		}else if(this.scan(this.getAreaOfEffect(Hovel), HousingBlockScan)){
+			if(this.scan(HousingType.Hovel.getDimensionsToScan(), Hovel)){
+				this.type = Hovel;
+			}
+		}else{
+			this.type = this.Empty;
+			ErrorHandler.displayError(new ScanProblemError("ScanProblemError" , IError.ScanError_Category , "Error: Please check if there are housing blocks nearby or if u have all the blocks required for this operation"));
 		}
-		
-		
-		
-		
-		
 	}
 	
-	public void convert(int from , int to){
-		
-	}
 	
 	
 	@Override
@@ -134,6 +140,12 @@ public class TileEntityHousing extends TileEntity implements IHousing{
 		if(ScanningFor == this.Hovel){
 			return this.canBecomeHovel(blocks);
 		}
+		if(ScanningFor == this.HousingBlockScan){
+			if(blocks.containsKey(ModBlocks.housingBlock1) || blocks.containsKey(ModBlocks.housingBlock2) || blocks.containsKey(ModBlocks.housingBlock3) || blocks.containsKey(ModBlocks.housingBlock4) || blocks.containsKey(ModBlocks.housingBlock5)){
+				return false;
+			}else return true;
+		}
+		
 		
 		return false;
 	}
@@ -141,39 +153,28 @@ public class TileEntityHousing extends TileEntity implements IHousing{
 	
 	
 	public boolean canBecomeApartment(HashMap map){
-		/*
-		 * WIP
-		 */
-		
+		//TODO
 		return false;
 	}
 	
 	public boolean canBecomeHomstead(HashMap map){
-		/*
-		 * WIP
-		 */
-		
+		//TODO
 		return false;
 	}
 	
 	public boolean canBecomeHouse(HashMap map){
-		/*
-		 * WIP
-		 */
-		
+		//TODO
 		return false;
 	}
 	
 	public boolean canBecomeHovel(HashMap map){
-		/*
-		 * WIP
-		 */
-		
+		//TODO
 		return false;
 	}
 
-	
 
+
+	
 	
 	
 	

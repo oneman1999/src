@@ -11,16 +11,16 @@ public interface IHousing {
 	
 	/**
 	 * returns and Integer Array containing the area that
-	 * the housing effects in 3 dimensions {X , Y , Z}
+	 * the housing scans for other housings in 3 dimensions {X , Y , Z}
 	 * @return
 	 */
-	public int[] getAreaOfEffect();
+	public int[] getAreaOfEffect(int type);
 	
 	/**
 	 * 
 	 * @param dimentions
 	 * @param the type its going to test for
-	 * @returns an Integer array which specifies the types that the housing could be
+	 * @return whether the empty housing block can be upgraded to a specified Housing type 
 	 */
 	public boolean scan(int[] dimentions , int TypeScanningFor);
 	
