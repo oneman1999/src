@@ -6,6 +6,7 @@ import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.DataWatcher;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
@@ -13,6 +14,7 @@ import net.minecraft.world.World;
 import dxm.DeusXMachina;
 import dxm.TileEntity.housing.TileEntityHousing;
 import dxm.blocks.ModBlocks;
+import dxm.gui.GuiIDs;
 import dxm.library.DXM_Info;
 
 public class HousingBlock extends BlockContainer {
@@ -24,6 +26,8 @@ public class HousingBlock extends BlockContainer {
 	public static final int Homstead = 2;
 	public static final int House = 3;
 	public static final int Apartment = 4;
+	
+	private DataWatcher dw;
 	
 	/**
 	 * Constructor for initializing the block
@@ -52,9 +56,8 @@ public class HousingBlock extends BlockContainer {
 	  */
 	 public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float a, float b, float c){
 		 if(!world.isRemote){
-			 int guiID = (meta == this.Apartment? 0 : ( meta == this.Homstead ? 1 : (meta == this.Hovel ? 2 :( meta == this.House? 3 : -1))));
-			 if(guiID != -1){
-				 player.openGui(DeusXMachina.instance, guiID, world, x, y, z);
+			if(meta != 0){
+				 player.openGui(DeusXMachina.instance, GuiIDs.Housing, world, x, y, z);
 				 return true;
 			 }
 		 }
