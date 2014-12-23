@@ -27,7 +27,6 @@ public class GuiHousing extends GuiContainer{
 		GL11.glColor4f(1F, 1F, 1F, 1F);
 		Minecraft.getMinecraft().getTextureManager().bindTexture(texture );
 		drawTexturedModalRect(guiLeft , guiTop , 0 , 0 , xSize , ySize);
-			
 	}
 
 }
