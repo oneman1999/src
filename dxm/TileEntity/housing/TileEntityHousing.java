@@ -122,19 +122,18 @@ public class TileEntityHousing extends TileEntity implements IHousing , IInvento
 				}
 			}
 		}
-		if(this.yCoord >= 64){
-			if(ScanningFor == this.Apartment){
-				return this.canBecomeApartment(blocks);
-			}
-			if(ScanningFor == this.Homstead){
-				return this.canBecomeHomstead(blocks);
-			}
-			if(ScanningFor == this.House){
-				return this.canBecomeHouse(blocks);
-			}
-			if(ScanningFor == this.Hovel){
-				return this.canBecomeHovel(blocks);
-			}
+		
+		if(ScanningFor == this.Apartment){
+			return this.canBecomeApartment(blocks);
+		}
+		if(ScanningFor == this.Homstead){
+			return this.canBecomeHomstead(blocks);
+		}
+		if(ScanningFor == this.House){
+			return this.canBecomeHouse(blocks);
+		}
+		if(ScanningFor == this.Hovel){
+			return this.canBecomeHovel(blocks);
 		}
 		if(ScanningFor == this.HousingBlockScan){
 			if(blocks.containsKey(ModBlocks.housingBlock1) || blocks.containsKey(ModBlocks.housingBlock2) || blocks.containsKey(ModBlocks.housingBlock3) || blocks.containsKey(ModBlocks.housingBlock4) || blocks.containsKey(ModBlocks.housingBlock5)){
