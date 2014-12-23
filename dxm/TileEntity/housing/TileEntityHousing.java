@@ -105,9 +105,6 @@ public class TileEntityHousing extends TileEntity implements IHousing , IInvento
 	
 	@Override
 	public boolean scan(int[] d , int ScanningFor) {
-		int fakeX = (int) Math.floor(d[0]/2);
-		int fakeY = 0;
-		int fakeZ = (int) Math.floor(d[2]/2);
 		HashMap blocks = new HashMap<Block , Integer>();
 		
 		
@@ -125,18 +122,19 @@ public class TileEntityHousing extends TileEntity implements IHousing , IInvento
 				}
 			}
 		}
-		
-		if(ScanningFor == this.Apartment){
-			return this.canBecomeApartment(blocks);
-		}
-		if(ScanningFor == this.Homstead){
-			return this.canBecomeHomstead(blocks);
-		}
-		if(ScanningFor == this.House){
-			return this.canBecomeHouse(blocks);
-		}
-		if(ScanningFor == this.Hovel){
-			return this.canBecomeHovel(blocks);
+		if(this.yCoord >= 64){
+			if(ScanningFor == this.Apartment){
+				return this.canBecomeApartment(blocks);
+			}
+			if(ScanningFor == this.Homstead){
+				return this.canBecomeHomstead(blocks);
+			}
+			if(ScanningFor == this.House){
+				return this.canBecomeHouse(blocks);
+			}
+			if(ScanningFor == this.Hovel){
+				return this.canBecomeHovel(blocks);
+			}
 		}
 		if(ScanningFor == this.HousingBlockScan){
 			if(blocks.containsKey(ModBlocks.housingBlock1) || blocks.containsKey(ModBlocks.housingBlock2) || blocks.containsKey(ModBlocks.housingBlock3) || blocks.containsKey(ModBlocks.housingBlock4) || blocks.containsKey(ModBlocks.housingBlock5)){

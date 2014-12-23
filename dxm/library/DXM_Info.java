@@ -21,3 +21,5 @@ public class DXM_Info {
 	 */
 	public static final String MOD_FULL_NAME = "Deus-Ex-Machina";
 }
+
+
