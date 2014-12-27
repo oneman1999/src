@@ -14,6 +14,8 @@ public class ModBlocks {
 	public static Block housingBlock3;
 	public static Block housingBlock4;
 	public static Block housingBlock5;
+	public static Block blockConcrete;
+	public static Block blockMudbrick;
 	   
 	
 	public static void setup() {
@@ -31,7 +33,8 @@ public class ModBlocks {
     	housingBlock3 = new HousingBlock(HousingBlock.Homstead);
     	housingBlock4 = new HousingBlock(HousingBlock.House);
     	housingBlock5 = new HousingBlock(HousingBlock.Hovel);
-    	
+    	blockConcrete = new BlockConcrete();
+    	blockMudbrick = new BlockMudbrick();
     }
     
     /** registring the Deus-Ex-Machina Blocks**/
@@ -43,8 +46,8 @@ public class ModBlocks {
     	registerBlock(housingBlock3 , "Homstead");
     	registerBlock(housingBlock4 , "House");
     	registerBlock(housingBlock5 , "Hovel");
-    	
-    	
+    	registerBlock(blockConcrete , "Concrete Block");
+    	registerBlock(blockMudbrick , "Mudbrick");
     }
     
     /**The new Way to register a block 

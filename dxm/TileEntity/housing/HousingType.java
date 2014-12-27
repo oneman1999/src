@@ -3,9 +3,9 @@ package dxm.TileEntity.housing;
 public enum HousingType {
 	
 	Apartment(21 , 60 , 21 , 0),
-	House(21 , 20 , 21 , 2),
-	Homstead(21 , 10 , 21 , 1),
-	Hovel(11 , 10 , 11 , 3);
+	House(21 , 60 , 21 , 2),
+	Homstead(21 , 60 , 21 , 1),
+	Hovel(21 , 60 , 21 , 3);
 	
 	public int x;
 	public int y;
