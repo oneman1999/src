@@ -1,5 +1,6 @@
 package dxm.blocks;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import dxm.DeusXMachina;
 import dxm.utils.MinecraftHelper;
@@ -56,7 +57,7 @@ public class ModBlocks {
      * @param name that will be rendered on the players Screen
      */
     public static void registerBlock(Block block , String name){
-    	MinecraftHelper.registerBlock(block);
+    	GameRegistry.registerBlock(block, block.getUnlocalizedName());
     	LanguageRegistry.addName(block, name);
     }
 }
