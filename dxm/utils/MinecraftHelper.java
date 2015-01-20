@@ -18,4 +18,8 @@ public class MinecraftHelper {
     public static void registerItem(Item item) {
         GameRegistry.registerItem(item, StringHelper.cleanUnlocalizedItemName(item));
     }
+    
+    public static void registerHousingBlockRecipe(){
+    	
+    }
 }

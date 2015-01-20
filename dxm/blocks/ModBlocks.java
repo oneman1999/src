@@ -25,6 +25,10 @@ public class ModBlocks {
         registerBlocks();
     }
 	
+	private void registerMachineRecipes(){
+		new HousingRecipes();
+	}
+	
 	
     /** initializing the Deus-Ex-Machina Blocks**/
     private static void createBlocks() {

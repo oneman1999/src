@@ -375,34 +375,11 @@ public class TileEntityHousing extends TileEntity implements IHousing , IInvento
 
 										/** CRAFTING **/
 	
-	static HashMap<ArrayList<ItemStack>,ArrayList<ItemStack>> recipes = new HashMap<ArrayList<ItemStack>,ArrayList<ItemStack>>();
 	
-	public static void registerRecipe(ArrayList<ItemStack> inputs , ArrayList<ItemStack> outputs){
-		recipes.put(inputs, outputs);
-	}
 	
-	public static ArrayList makeArray(ItemStack ... stacks){
-		ArrayList al = new ArrayList<ItemStack>();
-		
-		for(int i = 0; i<stacks.length;i++){
-			al.add(stacks[i]);
-		}
-		
-		return al;
-	}
-	
-	public static ItemStack makeStack( int Size , Item item){
-		return new ItemStack(item , Size);
-	}
-	
-	public boolean getRecipeMaches(){
-		for(int i = 0; i<slots.length /2;i++){
-			
-		}
-			
-		
-		
-		return false;
+	public ArrayList<ItemStack> getRecipeMaches(){
+		//WIP
+		return null;
 	}
 	
 	
