@@ -13,7 +13,7 @@ public class ContainerHousing extends Container {
 	
 	public ContainerHousing(InventoryPlayer inv, TileEntityHousing te) {
 		this.te = te;
-		
+
 		for (int i = 0; i < 3; ++i)
         {
             for (int j = 0; j < 9; ++j)
@@ -26,7 +26,19 @@ public class ContainerHousing extends Container {
         {
             this.addSlotToContainer(new Slot(inv, i, 8 + i * 18, 142));
         }
+	
 		
+		for(int i = 0; i<3;i++){
+			for(int j = 0; j < 3; j++){
+				this.addSlotToContainer(new Slot(te , j+ i*3 ,8 + j * 18 ,17 + i * 18));
+			}
+		}
+		
+		for(int i = 0; i<3;i++){
+			for(int j = 0; j < 3; j++){
+				this.addSlotToContainer(new Slot(te , j+ i*3 + 9 ,116 + j * 18 ,17 + i * 18));
+			}
+		}
 		
 	}
 

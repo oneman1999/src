@@ -19,13 +19,14 @@ public class ModBlocks {
 	
 	public static void setup() {
         createBlocks();
-
+        registerMachineRecipes();
         registerBlocks();
     }
 	
-	private void registerMachineRecipes(){
+	private static void registerMachineRecipes(){
 		new HousingRecipes();
 	}
+	
 	
 	
     /** initializing the Deus-Ex-Machina Blocks**/
@@ -49,8 +50,8 @@ public class ModBlocks {
     	registerBlock(housingBlock3 , "Homstead");
     	registerBlock(housingBlock4 , "House");
     	registerBlock(housingBlock5 , "Hovel");
-    	registerBlock(blockConcrete , "Concrete Block");
-    	registerBlock(blockMudbrick , "Mudbrick");
+   // 	registerBlock(blockConcrete , "Concrete Block");
+  // 	registerBlock(blockMudbrick , "Mudbrick");
     }
     
     /**The new Way to register a block 
