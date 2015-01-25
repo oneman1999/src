@@ -1,12 +1,9 @@
 package dxm.blocks;
 
+import net.minecraft.block.Block;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-import dxm.DeusXMachina;
-import dxm.utils.MinecraftHelper;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockFalling;
-import net.minecraft.block.material.Material;
+import dxm.TileEntity.housing.HousingRecipes;
 
 public class ModBlocks {
 
@@ -17,6 +14,7 @@ public class ModBlocks {
 	public static Block housingBlock5;
 	public static Block blockConcrete;
 	public static Block blockMudbrick;
+	
 	   
 	
 	public static void setup() {
